@@ -17,7 +17,11 @@ if (!defined('e107_INIT')) { exit; }
 // Solo inyectar en el área de usuario (frontend), no en el admin
 if (deftrue('USER_AREA'))
 {
-	$demobarPrefs = e107::pref('demobar');
+	// Load the class early so we can use getMainPrefs() for cross-DB pref reading.
+	require_once(e_PLUGIN . 'demobar/includes/demobar_class.php');
+
+	// Use the main-site prefs (cross-DB when multisite is active).
+	$demobarPrefs = demobar_class::getMainPrefs();
 
 	// When multisite is active, the current demo DB may not have demobar prefs.
 	// In that case, force the bar active and use sensible defaults.
@@ -80,7 +84,6 @@ if (deftrue('USER_AREA'))
 		e107::css('inline', $inlineCss);
 
 		// --- Renderizar la barra ---
-		require_once(e_PLUGIN . 'demobar/includes/demobar_class.php');
 		$demobar = new demobar_class();
 		$barHtml = $demobar->renderBar();
 

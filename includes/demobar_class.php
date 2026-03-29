@@ -54,6 +54,22 @@ class demobar_class
 	 */
 	private function loadPrefs()
 	{
+		return self::getMainPrefs();
+	}
+
+
+	/**
+	 * Return the demobar plugin preferences.
+	 *
+	 * When multisite is active, reads from the **main** (original) database so that
+	 * admin-configured colours, URLs, etc. are consistent across every demo site.
+	 * This is a public static helper so that both `e_header.php` and the class
+	 * constructor can share the same cross-DB logic without duplication.
+	 *
+	 * @return array Plugin preferences
+	 */
+	public static function getMainPrefs()
+	{
 		// If not running under multisite, use the normal e107 API.
 		if (!defined('e_MULTISITE_IN_USE'))
 		{
