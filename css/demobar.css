@@ -1,0 +1,272 @@
+/**
+ * DemoBar Plugin - Estilos CSS v2.0.0
+ */
+
+:root {
+--demobar-bg: #1a1a2e;
+--demobar-text: #ffffff;
+--demobar-accent: #0ea5e9;
+--demobar-accent-hover: #38bdf8;
+--demobar-height: 44px;
+--demobar-font-size: 13px;
+--demobar-z-index: 99999;
+--demobar-transition: all 0.25s ease;
+}
+
+.demobar {
+position: fixed;
+left: 0;
+right: 0;
+z-index: var(--demobar-z-index);
+height: var(--demobar-height);
+background-color: var(--demobar-bg);
+color: var(--demobar-text);
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+font-size: var(--demobar-font-size);
+line-height: 1;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+transition: var(--demobar-transition);
+overflow: hidden;
+}
+
+.demobar-top { top: 0; }
+.demobar-bottom { bottom: 0; box-shadow: 0 -2px 8px rgba(0,0,0,0.2); }
+
+.demobar-inner {
+display: flex;
+align-items: center;
+gap: 16px;
+max-width: 1400px;
+margin: 0 auto;
+padding: 0 16px;
+height: 100%;
+}
+
+.demobar-brand {
+flex-shrink: 0;
+color: var(--demobar-text);
+font-weight: 700;
+font-size: 14px;
+text-decoration: none;
+letter-spacing: 0.5px;
+white-space: nowrap;
+}
+
+a.demobar-brand:hover,
+a.demobar-brand:focus {
+color: var(--demobar-accent);
+text-decoration: none;
+}
+
+.demobar-nav {
+display: flex;
+align-items: center;
+gap: 8px;
+flex: 1;
+justify-content: center;
+}
+
+.demobar-arrow {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 28px;
+height: 28px;
+border-radius: 4px;
+color: rgba(255,255,255,0.8);
+text-decoration: none;
+font-size: 14px;
+transition: var(--demobar-transition);
+user-select: none;
+}
+
+a.demobar-arrow:hover,
+a.demobar-arrow:focus {
+background-color: rgba(255,255,255,0.15);
+color: #fff;
+text-decoration: none;
+}
+
+.demobar-arrow.disabled {
+color: rgba(255,255,255,0.2);
+cursor: default;
+pointer-events: none;
+}
+
+.demobar-current {
+font-weight: 600;
+font-size: 14px;
+color: var(--demobar-accent);
+white-space: nowrap;
+min-width: 80px;
+text-align: center;
+}
+
+.demobar-actions {
+display: flex;
+align-items: center;
+gap: 6px;
+flex-shrink: 0;
+}
+
+.demobar-btn {
+display: inline-flex;
+align-items: center;
+gap: 4px;
+padding: 5px 12px;
+border-radius: 4px;
+font-size: 12px;
+font-weight: 600;
+text-decoration: none;
+white-space: nowrap;
+transition: var(--demobar-transition);
+cursor: pointer;
+border: 1px solid transparent;
+line-height: 1.2;
+}
+
+.demobar-btn-primary {
+background-color: var(--demobar-accent);
+color: #fff;
+border-color: var(--demobar-accent);
+}
+
+.demobar-btn-primary:hover,
+.demobar-btn-primary:focus {
+background-color: var(--demobar-accent-hover);
+border-color: var(--demobar-accent-hover);
+color: #fff;
+text-decoration: none;
+}
+
+.demobar-btn-outline {
+background-color: transparent;
+color: var(--demobar-text);
+border-color: rgba(255,255,255,0.3);
+}
+
+.demobar-btn-outline:hover,
+.demobar-btn-outline:focus {
+background-color: rgba(255,255,255,0.1);
+border-color: var(--demobar-text);
+color: var(--demobar-text);
+text-decoration: none;
+}
+
+.demobar-btn-admin {
+background-color: rgba(255,255,255,0.1);
+color: var(--demobar-text);
+border-color: rgba(255,255,255,0.2);
+}
+
+.demobar-btn-admin:hover,
+.demobar-btn-admin:focus {
+background-color: rgba(255,255,255,0.2);
+border-color: var(--demobar-text);
+color: #fff;
+text-decoration: none;
+}
+
+.demobar-toggle {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 28px;
+height: 28px;
+flex-shrink: 0;
+padding: 0;
+border: none;
+border-radius: 4px;
+background-color: rgba(255,255,255,0.1);
+color: rgba(255,255,255,0.6);
+font-size: 14px;
+cursor: pointer;
+transition: var(--demobar-transition);
+line-height: 1;
+}
+
+.demobar-toggle:hover,
+.demobar-toggle:focus {
+background-color: rgba(255,255,255,0.2);
+color: var(--demobar-text);
+outline: none;
+}
+
+.demobar.demobar-hidden {
+height: 0;
+opacity: 0;
+pointer-events: none;
+overflow: hidden;
+}
+
+.demobar-restore {
+position: fixed;
+z-index: var(--demobar-z-index);
+right: 16px;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+border: none;
+background-color: var(--demobar-bg);
+color: var(--demobar-text);
+font-size: 16px;
+cursor: pointer;
+box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+display: none;
+align-items: center;
+justify-content: center;
+transition: var(--demobar-transition);
+}
+
+.demobar-restore-top { top: 8px; }
+.demobar-restore-bottom { bottom: 8px; }
+
+.demobar-restore.visible { display: flex; }
+
+.demobar-restore:hover,
+.demobar-restore:focus {
+transform: scale(1.1);
+box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+outline: none;
+}
+
+.demobar-catalog { min-height: 60vh; }
+
+.demobar-card {
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 8px;
+transition: var(--demobar-transition);
+}
+
+.demobar-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.demobar-card .card-title { font-size: 1.1rem; font-weight: 600; color: #1a1a2e; }
+.demobar-card .card-text { font-size: 0.9rem; }
+.demobar-card .btn-primary { background-color: var(--demobar-accent); border-color: var(--demobar-accent); }
+.demobar-card .btn-primary:hover { background-color: var(--demobar-accent-hover); border-color: var(--demobar-accent-hover); }
+
+@media (max-width: 768px) {
+.demobar-inner { gap: 8px; padding: 0 8px; }
+.demobar-actions { display: none; }
+.demobar-brand { font-size: 12px; }
+.demobar-current { font-size: 12px; min-width: 60px; }
+}
+
+@media (max-width: 480px) {
+:root { --demobar-height: 38px; }
+.demobar-brand { display: none; }
+}
+
+.demobar *:focus-visible { outline: 2px solid var(--demobar-accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+.demobar, .demobar *, .demobar-card, .demobar-restore { transition: none !important; }
+}
+
+@media print {
+.demobar, .demobar-restore { display: none !important; }
+body { padding-top: 0 !important; padding-bottom: 0 !important; }
+}

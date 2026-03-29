@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e107Plugin name="DemoBar"
+            lan="LAN_PLUGIN_DEMOBAR_NAME"
+            version="1.0"
+            date="2026-03-27"
+            compatibility="2.3"
+            installRequired="true">
+
+    <author name="KreativeKey" url="https://kreativekey.pt" />
+
+    <summary lan="LAN_PLUGIN_DEMOBAR_SUMMARY">Persistent navigation bar for multisite demo environments</summary>
+
+    <description lan="LAN_PLUGIN_DEMOBAR_DESCRIPTION">Injects a fixed top bar across all sites within a multisite e107 installation. Reads active demos from multisite.json and displays navigation, CTA buttons, and status indicators — inspired by BootstrapMade demo bar.</description>
+
+    <category>content</category>
+
+    <keywords>
+        <word>demobar</word>
+        <word>multisite</word>
+        <word>demo</word>
+        <word>navigation</word>
+        <word>showcase</word>
+    </keywords>
+
+    <adminLinks>
+        <link url="admin_config.php" description="Configure DemoBar" icon="images/demobar_32.png" iconSmall="images/demobar_16.png" icon128="images/demobar_128.png" primary="true">LAN_CONFIGURE</link>
+    </adminLinks>
+
+    <siteLinks>
+        <link category="1" url="{e_PLUGIN}demobar/demobar.php" perm="everyone" sef="demos">LAN_PLUGIN_DEMOBAR_LINK</link>
+    </siteLinks>
+
+    <pluginPrefs>
+        <pref name="demobar_active">1</pref>
+        <pref name="demobar_brand_text">Demos</pref>
+        <pref name="demobar_brand_url"></pref>
+        <pref name="demobar_bg_color">#343a40</pref>
+        <pref name="demobar_text_color">#ffffff</pref>
+        <pref name="demobar_cta_source_url"></pref>
+        <pref name="demobar_cta_source_text">Source Code</pref>
+        <pref name="demobar_cta_contact_url"></pref>
+        <pref name="demobar_cta_contact_text">Contact Us</pref>
+        <pref name="demobar_show_prevnext">1</pref>
+        <pref name="demobar_show_hide_toggle">1</pref>
+        <pref name="demobar_admin_ip_whitelist"></pref>
+        <pref name="demobar_position">top</pref>
+    </pluginPrefs>
+
+</e107Plugin>
