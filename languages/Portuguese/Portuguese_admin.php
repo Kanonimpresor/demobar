@@ -87,26 +87,182 @@ define('LAN_DEMOBAR_ADMIN_CFG_INVALID',     'JSON inválido no multisite.json');
 
 
 // =============================================================================
-// Página de Guia
+// Página de Guia — Títulos das abas
 // =============================================================================
 
 define('LAN_DEMOBAR_GUIDE_TITLE',           'Guia do DemoBar');
 define('LAN_DEMOBAR_GUIDE_TAB_OVERVIEW',    'Visão Geral');
 define('LAN_DEMOBAR_GUIDE_TAB_CONFIG',      'Configuração');
 define('LAN_DEMOBAR_GUIDE_TAB_USAGE',       'Uso');
+define('LAN_DEMOBAR_GUIDE_TAB_MULTISITE',   'Multissite');
 define('LAN_DEMOBAR_GUIDE_TAB_TROUBLE',     'Solução de Problemas');
 
-define('LAN_DEMOBAR_GUIDE_OVERVIEW_TITLE',  'O que é o DemoBar?');
-define('LAN_DEMOBAR_GUIDE_OVERVIEW_TEXT',   'O DemoBar adiciona uma barra de navegação persistente ao seu ambiente de demonstração multissite, permitindo que os visitantes naveguem entre demos, vejam o código fonte e entrem em contato. Ele lê a configuração existente do multisite.json.');
 
-define('LAN_DEMOBAR_GUIDE_CONFIG_TITLE',    'Etapas de Configuração');
-define('LAN_DEMOBAR_GUIDE_CONFIG_TEXT',     '1. Ative o DemoBar em Preferências.<br>2. Configure o texto e URL da sua marca.<br>3. Configure os botões CTA (código fonte, contato).<br>4. Personalize as cores para combinar com sua marca.<br>5. Opcionalmente, restrinja o acesso administrativo por IP.');
+// =============================================================================
+// Guia — Aba 1: Visão Geral
+// =============================================================================
 
-define('LAN_DEMOBAR_GUIDE_USAGE_TITLE',     'Usando o DemoBar');
-define('LAN_DEMOBAR_GUIDE_USAGE_TEXT',      'Uma vez ativado, a barra aparece automaticamente em todas as páginas do frontend. Os visitantes podem navegar entre demos e a barra persiste entre carregamentos de página. Use Ctrl+Shift+D para alternar a visibilidade.');
+define('LAN_DEMOBAR_GUIDE_OVERVIEW_TITLE',  'Bem-vindo ao DemoBar');
+define('LAN_DEMOBAR_GUIDE_OVERVIEW_INTRO',  'O DemoBar é um plugin para e107 que adiciona uma barra de navegação fixa aos seus demos multissite, permitindo que os visitantes naveguem entre temas/sites demo de forma fluida. Suporta branding, botões de chamada para ação, ferramentas exclusivas para administradores e personalização completa.');
 
-define('LAN_DEMOBAR_GUIDE_TROUBLE_TITLE',   'Solução de Problemas');
-define('LAN_DEMOBAR_GUIDE_TROUBLE_TEXT',    '<strong>Barra não aparece?</strong> Verifique se o DemoBar está ativado e se o multisite.json existe.<br><strong>Nenhum demo listado?</strong> Verifique se o multisite.json contém entradas válidas.<br><strong>Cores erradas?</strong> Limpe o cache do site após alterar as preferências de cores.');
+// Passos do fluxo
+define('LAN_DEMOBAR_GUIDE_FLOW_STEP1',     'Instalar DemoBar');
+define('LAN_DEMOBAR_GUIDE_FLOW_STEP2',     'Configurar Preferências');
+define('LAN_DEMOBAR_GUIDE_FLOW_STEP3',     'Configurar Multissite');
+define('LAN_DEMOBAR_GUIDE_FLOW_STEP4',     'Visitantes Navegam os Demos');
+
+// Funcionalidades
+define('LAN_DEMOBAR_GUIDE_FEATURES_TITLE',          'Funcionalidades Principais');
+define('LAN_DEMOBAR_GUIDE_FEAT_MULTISITE',           'Integração Multissite');
+define('LAN_DEMOBAR_GUIDE_FEAT_MULTISITE_DESC',      'Detecta e carrega automaticamente os demos a partir do multisite.json. Lê as preferências de marca/CTA do banco de dados principal.');
+define('LAN_DEMOBAR_GUIDE_FEAT_NAVIGATION',          'Navegação de Demos');
+define('LAN_DEMOBAR_GUIDE_FEAT_NAVIGATION_DESC',     'Setas Anterior/Próximo para navegar entre demos com estado desabilitado no primeiro/último. O site principal mostra um botão "Ver Demos" em vez disso.');
+define('LAN_DEMOBAR_GUIDE_FEAT_CUSTOMIZABLE',        'Totalmente Personalizável');
+define('LAN_DEMOBAR_GUIDE_FEAT_CUSTOMIZABLE_DESC',   'Altere a cor de fundo, cor do texto, nome da marca, posição (topo/inferior) e alterne pelo painel de administração.');
+define('LAN_DEMOBAR_GUIDE_FEAT_CTA',                 'Botões de Chamada para Ação');
+define('LAN_DEMOBAR_GUIDE_FEAT_CTA_DESC',            'Exibe botões de Código Fonte e Contato, com links para seu repositório GitHub e página de contato.');
+define('LAN_DEMOBAR_GUIDE_FEAT_TOGGLE',              'Botão Mostrar/Ocultar');
+define('LAN_DEMOBAR_GUIDE_FEAT_TOGGLE_DESC',         'Os visitantes podem ocultar a barra com um clique ou o atalho de teclado Ctrl+Shift+D. O estado é preservado no localStorage.');
+define('LAN_DEMOBAR_GUIDE_FEAT_SECURITY',            'Acesso Somente para Administradores');
+define('LAN_DEMOBAR_GUIDE_FEAT_SECURITY_DESC',       'O botão Admin só é visível para administradores autenticados (check_class). Lista branca de IPs disponível para restrições adicionais.');
+define('LAN_DEMOBAR_GUIDE_FEAT_I18N',                'Internacionalização');
+define('LAN_DEMOBAR_GUIDE_FEAT_I18N_DESC',           'Todos os rótulos de interface utilizam constantes de idioma. Atualmente inclui traduções em inglês, espanhol e português.');
+define('LAN_DEMOBAR_GUIDE_FEAT_RESPONSIVE',          'Design Responsivo');
+define('LAN_DEMOBAR_GUIDE_FEAT_RESPONSIVE_DESC',     'Adapta o layout e tamanhos de fonte nos pontos de quebra de 768px e 480px. O texto de CTA é ocultado em telas pequenas, os ícones permanecem sempre visíveis.');
+
+// Pré-visualização do layout
+define('LAN_DEMOBAR_GUIDE_LAYOUT_TITLE',             'Layout da Barra');
+define('LAN_DEMOBAR_GUIDE_LAYOUT_BRAND_DESC',        'Seu nome de marca com link');
+define('LAN_DEMOBAR_GUIDE_LAYOUT_NAV_DESC',          'Navegação de demo Anterior/Próximo');
+define('LAN_DEMOBAR_GUIDE_LAYOUT_ACTIONS_DESC',      'Botões de Código Fonte + Contato + Admin');
+define('LAN_DEMOBAR_GUIDE_LAYOUT_TOGGLE_DESC',       'Fechar / reabrir a barra');
+
+// Início rápido
+define('LAN_DEMOBAR_GUIDE_QUICKSTART',               'Início Rápido');
+define('LAN_DEMOBAR_GUIDE_QUICKSTART_DESC',          'Instale o plugin, configure o nome da sua marca, URLs e cores na aba de Configurações, depois configure o plugin multissite com pelo menos um site demo. O DemoBar aparecerá automaticamente em todas as páginas de demos.');
+
+
+// =============================================================================
+// Guia — Aba 2: Configuração
+// =============================================================================
+
+define('LAN_DEMOBAR_GUIDE_CONFIG_TITLE',             'Referência de Configuração');
+define('LAN_DEMOBAR_GUIDE_CONFIG_INTRO',             'Todas as opções são gerenciadas em DemoBar Admin → Configurações. As preferências são armazenadas na tabela de prefs do core do e107 com a chave <code>plugin_demobar</code>.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_PREFS_TITLE',       'Opções Disponíveis');
+
+// Cabeçalhos da tabela
+define('LAN_DEMOBAR_GUIDE_CONFIG_TH_OPTION',         'Opção');
+define('LAN_DEMOBAR_GUIDE_CONFIG_TH_TYPE',           'Tipo');
+define('LAN_DEMOBAR_GUIDE_CONFIG_TH_DESC',           'Descrição');
+
+// Linhas da tabela
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_ACTIVE',          'Ativa ou desativa o DemoBar em todas as páginas do frontend. Quando desativado, a barra fica completamente oculta.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_BRAND_TEXT',      'O texto exibido na seção esquerda da barra (ex: nome da sua empresa). Suporta apenas texto simples.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_BRAND_URL',       'A URL vinculada ao nome da marca. Geralmente aponta para o seu site principal ou portfólio.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_BG_COLOR',        'Cor de fundo da barra. Aceita qualquer valor de cor CSS (#hex, rgb ou cores nomeadas). Padrão: <code>#1a1a2e</code>.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_TEXT_COLOR',      'Cor do texto e ícones na barra. Padrão: <code>#e0e0e0</code>.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_SOURCE_URL',      'URL para o botão "Código Fonte". Geralmente sua página do GitHub ou repositório. Deixe em branco para ocultar este botão.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_CONTACT_URL',     'URL para o botão "Contato". Aponta para seu formulário de contato ou página de e-mail. Deixe em branco para ocultar este botão.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_POSITION',        'Posição da barra na tela: <strong>Topo</strong> (fixa no topo) ou <strong>Inferior</strong> (fixa na parte inferior). Padrão: topo.');
+define('LAN_DEMOBAR_GUIDE_CONFIG_R_IP_WHITELIST',    'Um IP por linha. Quando configurado, o botão Admin só aparece para administradores conectados a partir desses IPs. Deixe vazio para permitir todos os IPs de admin.');
+
+// Nota cross-DB
+define('LAN_DEMOBAR_GUIDE_CONFIG_NOTE_TITLE',        'Preferências Cross-Database:');
+define('LAN_DEMOBAR_GUIDE_CONFIG_NOTE_TEXT',          'Quando executado em modo multissite, o DemoBar lê as URLs de marca e CTA do <strong>banco de dados do site principal</strong>, não do banco de dados individual de cada demo. Isso garante branding e URLs consistentes em todos os demos sem necessidade de configurar cada um separadamente.');
+
+
+// =============================================================================
+// Guia — Aba 3: Uso
+// =============================================================================
+
+define('LAN_DEMOBAR_GUIDE_USAGE_TITLE',              'Como Usar o DemoBar');
+define('LAN_DEMOBAR_GUIDE_USAGE_INTRO',              'O DemoBar se comporta de maneira diferente dependendo de se o visitante está no site principal ou em um site demo.');
+
+// Site principal
+define('LAN_DEMOBAR_GUIDE_USAGE_MAIN_TITLE',         'No Site Principal');
+define('LAN_DEMOBAR_GUIDE_USAGE_MAIN_DESC',          'Quando um visitante está no site principal (não em um demo), a barra mostra navegação limitada:');
+define('LAN_DEMOBAR_GUIDE_USAGE_MAIN_ITEM1',         'O nome/link da marca está sempre visível.');
+define('LAN_DEMOBAR_GUIDE_USAGE_MAIN_ITEM2',         'Em vez de setas de navegação, um botão <strong>"▶ Ver Demos"</strong> leva ao primeiro demo disponível.');
+define('LAN_DEMOBAR_GUIDE_USAGE_MAIN_ITEM3',         'Os botões CTA (Código Fonte, Contato) são exibidos se configurados.');
+
+// Site demo
+define('LAN_DEMOBAR_GUIDE_USAGE_DEMO_TITLE',         'Em Sites Demo');
+define('LAN_DEMOBAR_GUIDE_USAGE_DEMO_DESC',          'Ao visualizar um site demo, a navegação completa está ativa:');
+define('LAN_DEMOBAR_GUIDE_USAGE_DEMO_ITEM1',         'As <strong>setas Anterior/Próximo</strong> navegam entre demos. As setas ficam desabilitadas (em cinza) quando está no primeiro ou último demo.');
+define('LAN_DEMOBAR_GUIDE_USAGE_DEMO_ITEM2',         'O <strong>nome do demo atual</strong> é exibido entre as setas.');
+define('LAN_DEMOBAR_GUIDE_USAGE_DEMO_ITEM3',         'Todos os botões CTA são carregados das preferências do site principal para manter um branding consistente.');
+define('LAN_DEMOBAR_GUIDE_USAGE_DEMO_ITEM4',         'O <strong>botão Admin</strong> (se visível) leva ao painel de administração do site principal.');
+
+// Toggle e teclado
+define('LAN_DEMOBAR_GUIDE_USAGE_TOGGLE_TITLE',       'Alternar e Atalho de Teclado');
+define('LAN_DEMOBAR_GUIDE_USAGE_TOGGLE_DESC',        'Os visitantes podem ocultar ou mostrar o DemoBar a qualquer momento. O estado da barra é salvo no localStorage do navegador para que persista entre carregamentos de página.');
+define('LAN_DEMOBAR_GUIDE_USAGE_SHORTCUT_LABEL',     'Alternar visibilidade do DemoBar');
+
+// Botão Admin
+define('LAN_DEMOBAR_GUIDE_USAGE_ADMIN_TITLE',        'Botão de Administração');
+define('LAN_DEMOBAR_GUIDE_USAGE_ADMIN_DESC',         'O botão Admin só é visível para usuários com privilégios de administrador (<code>check_class(e_UC_ADMIN)</code>). Fornece um link rápido para o painel de administração do site principal.');
+define('LAN_DEMOBAR_GUIDE_USAGE_ADMIN_WARNING',      'Se você configurou uma lista branca de IPs, o botão Admin só aparecerá para administradores conectados a partir desses IPs específicos.');
+
+
+// =============================================================================
+// Guia — Aba 4: Multissite
+// =============================================================================
+
+define('LAN_DEMOBAR_GUIDE_MULTI_TITLE',              'Integração Multissite');
+define('LAN_DEMOBAR_GUIDE_MULTI_INTRO',              'O DemoBar foi projetado para funcionar perfeitamente com o plugin <strong>CaMer0n/multisite</strong> para e107. Ele lê a lista de sites a partir do multisite.json e adapta seu comportamento com base no site ativo.');
+
+// Requisitos
+define('LAN_DEMOBAR_GUIDE_MULTI_REQS_TITLE',         'Requisitos');
+define('LAN_DEMOBAR_GUIDE_MULTI_REQ1',               'O plugin <strong>CaMer0n/multisite</strong> deve estar instalado e ativado.');
+define('LAN_DEMOBAR_GUIDE_MULTI_REQ2',               'Pelo menos um site demo deve estar configurado no painel de administração multissite.');
+define('LAN_DEMOBAR_GUIDE_MULTI_REQ3',               'Cada site demo deve ter seu próprio banco de dados (o plugin os cria automaticamente durante o provisionamento).');
+define('LAN_DEMOBAR_GUIDE_MULTI_REQ4',               'As regras de reescrita do <code>.htaccess</code> devem estar configuradas (configuradas automaticamente pelo plugin multissite).');
+
+// Como funciona
+define('LAN_DEMOBAR_GUIDE_MULTI_HOW_TITLE',          'Como Funciona');
+define('LAN_DEMOBAR_GUIDE_MULTI_HOW_DESC',           'Os seguintes componentes trabalham juntos para habilitar a navegação de demos multissite:');
+define('LAN_DEMOBAR_GUIDE_MULTI_TH_COMPONENT',       'Componente');
+define('LAN_DEMOBAR_GUIDE_MULTI_TH_ROLE',            'Função');
+define('LAN_DEMOBAR_GUIDE_MULTI_ROW_JSON',           'Arquivo de configuração JSON que lista todos os sites demo com seus nomes, bancos de dados e caminhos de URL.');
+define('LAN_DEMOBAR_GUIDE_MULTI_ROW_MATCH',          'Constante definida pelo plugin multissite contendo o slug do site atual (ex: "booking", "kreative").');
+define('LAN_DEMOBAR_GUIDE_MULTI_ROW_INUSE',          'Constante booleana que indica se o multissite está redirecionando ativamente para um banco de dados demo. O DemoBar a utiliza para decidir se deve mostrar as setas de navegação.');
+define('LAN_DEMOBAR_GUIDE_MULTI_ROW_HTACCESS',       'Reescreve os caminhos <code>/slug-demo/</code> para o handler multissite, habilitando URLs limpas para cada demo.');
+
+// Auto-provisionamento
+define('LAN_DEMOBAR_GUIDE_MULTI_PROV_TITLE',         'Auto-Provisionamento');
+define('LAN_DEMOBAR_GUIDE_MULTI_PROV_DESC',          'Quando você cria um novo site demo através do painel de administração multissite, o DemoBar se registra automaticamente no novo banco de dados do demo. Isso garante que a barra apareça no novo demo sem configuração manual.');
+define('LAN_DEMOBAR_GUIDE_MULTI_PROV_NOTE_TITLE',    'Herança de Preferências:');
+define('LAN_DEMOBAR_GUIDE_MULTI_PROV_NOTE_TEXT',     'O texto da marca, URLs e configurações de CTA são sempre lidos do <strong>banco de dados do site principal</strong> em tempo de execução. Você só precisa configurá-los uma vez — serão herdados por todos os sites demo automaticamente.');
+
+
+// =============================================================================
+// Guia — Aba 5: Solução de Problemas
+// =============================================================================
+
+define('LAN_DEMOBAR_GUIDE_TROUBLE_TITLE',            'Solução de Problemas');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_INTRO',            'Abaixo estão problemas comuns e suas soluções.');
+
+define('LAN_DEMOBAR_GUIDE_TROUBLE_Q1',               'O DemoBar não aparece em nenhuma página');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_A1',               'Certifique-se de que o plugin está instalado e ativado. Verifique se "Ativar DemoBar" está habilitado nas Configurações. Confirme que o arquivo <code>e_header.php</code> do plugin existe. Limpe o cache do e107 em Admin → Ferramentas → Cache.');
+
+define('LAN_DEMOBAR_GUIDE_TROUBLE_Q2',               'As setas de navegação não aparecem nas páginas demo');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_A2',               'Verifique se o plugin multissite está instalado e se o <code>multisite.json</code> contém entradas de demo válidas. Confirme que a constante <code>e_MULTISITE_IN_USE</code> está sendo definida. Certifique-se de que a URL atual corresponde a um slug de demo configurado.');
+
+define('LAN_DEMOBAR_GUIDE_TROUBLE_Q3',               'O nome da marca e botões CTA estão vazios nos demos');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_A3',               'O DemoBar lê esses valores do <strong>banco de dados do site principal</strong>. Certifique-se de ter configurado Texto da Marca, URL da Marca, URL do Código Fonte e URL de Contato nas configurações de admin do DemoBar do site principal (não do demo).');
+
+define('LAN_DEMOBAR_GUIDE_TROUBLE_Q4',               'A barra aparece dentro da página em vez de fixa no topo/inferior');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_A4',               'Isso geralmente é um conflito de CSS. Verifique se o <code>demobar.css</code> está carregando corretamente (veja nas ferramentas de desenvolvedor do navegador → aba Rede). Certifique-se de que seu tema não sobrescreve <code>position: fixed</code> no elemento da barra. Limpe o cache do navegador e do e107.');
+
+define('LAN_DEMOBAR_GUIDE_TROUBLE_Q5',               'O botão Admin não está visível');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_A5',               'O botão Admin só é visível para administradores logados. Verifique se você está logado com uma conta de administrador. Se você tem uma lista branca de IPs configurada, certifique-se de que seu IP atual está na lista.');
+
+define('LAN_DEMOBAR_GUIDE_TROUBLE_Q6',               'Ocultei a barra e não consigo recuperá-la');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_A6',               'Pressione <strong>Ctrl+Shift+D</strong> para alternar a barra. Alternativamente, abra o console de desenvolvedor do seu navegador e execute: <code>localStorage.removeItem("demobar-hidden")</code> e recarregue a página.');
+
+// Suporte
+define('LAN_DEMOBAR_GUIDE_TROUBLE_SUPPORT_TITLE',    'Precisa de Mais Ajuda?');
+define('LAN_DEMOBAR_GUIDE_TROUBLE_SUPPORT_TEXT',     'Visite os fóruns da comunidade e107 ou abra uma issue no repositório GitHub do plugin. Por favor inclua sua versão do e107, versão do PHP e quaisquer mensagens de erro relevantes do seu log de administração.');
 
 
 // =============================================================================
