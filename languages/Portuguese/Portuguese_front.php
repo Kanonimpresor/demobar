@@ -15,9 +15,7 @@ if (!defined('e107_INIT')) { exit; }
 
 
 // --- Geral ---
-define('LAN_DEMOBAR_PLUGIN_NAME',        'DemoBar');
-define('LAN_DEMOBAR_PLUGIN_DESCRIPTION', 'Barra de navegação persistente para ambientes de demonstração multissite');
-define('LAN_PLUGIN_DEMOBAR_LINK',        'Demos');
+// LAN_PLUGIN_DEMOBAR_NAME, LAN_PLUGIN_DEMOBAR_LINK → ver Portuguese_global.php (carregado em cada página)
 
 // --- Barra de navegação ---
 define('LAN_DEMOBAR_VIEW_DEMO',          'Ver Demo');

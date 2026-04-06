@@ -97,6 +97,7 @@ define('LAN_DEMOBAR_GUIDE_TAB_CONFIG',      'Configuration');
 define('LAN_DEMOBAR_GUIDE_TAB_USAGE',       'Usage');
 define('LAN_DEMOBAR_GUIDE_TAB_MULTISITE',   'Multisite');
 define('LAN_DEMOBAR_GUIDE_TAB_TROUBLE',     'Troubleshooting');
+define('LAN_DEMOBAR_GUIDE_TAB_DEMOS',        'Demo Management');
 
 
 // =============================================================================
@@ -206,7 +207,76 @@ define('LAN_DEMOBAR_GUIDE_USAGE_ADMIN_WARNING',      'If you have configured an 
 
 
 // =============================================================================
-// Guide — Tab 4: Multisite
+// Guide — Tab 4: Demo Management
+// =============================================================================
+
+define('LAN_DEMOBAR_GUIDE_DEMOS_TITLE',              'Demo Management');
+define('LAN_DEMOBAR_GUIDE_DEMOS_INTRO',              'DemoBar includes a full demo catalog system. You can create, edit, and manage demo entries directly from the admin panel. Each demo is stored in the <code>demobar_demos</code> database table and displayed on the public catalog and detail pages.');
+
+// CRUD
+define('LAN_DEMOBAR_GUIDE_DEMOS_CRUD_TITLE',         'Creating & Editing Demos');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CRUD_DESC',          'Navigate to <strong>Admin → DemoBar → Create Demo</strong> to add a new demo. Use the demo list to edit or delete existing entries. The following fields are available:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TH_FIELD',           'Field');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TH_TYPE',            'Type');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TH_DESC',            'Description');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_SLUG',             'Unique URL-friendly identifier that matches the multisite match pattern (e.g. <code>bootstrap5</code>, <code>kreative</code>). Used in URLs like <code>/demos/bootstrap5</code>.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_NAME',             'Display name of the demo shown in catalog cards and detail pages.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_DESC',             'Full description of the demo. Automatically truncated in catalog cards and sidebar (see Truncation section below).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_CATEGORY',         'Select from 25 predefined categories (Business, Portfolio, eCommerce, etc.). Categories are fully internationalized and support batch operations and filtering in the admin list.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_THUMBNAIL',        'Demo preview image. Uses e107 media manager for upload and selection. Displayed as a card image in the catalog.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_VERSION',          'Version string of the demo (e.g. <code>1.0.0</code>). Shown in the detail page info panel.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_RELEASE',          'Date the demo was released. Displayed in the detail page metadata.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_BUILT',            'Technologies used (e.g. <code>Bootstrap 5, jQuery</code>). Shown in the detail page.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_LICENSE',          'License type (e.g. GPL, MIT) and an optional URL linking to the full license text.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_DOWNLOAD',         'URL where the demo files can be downloaded. If provided, a Download button appears on the detail page.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_ORDER',            'Sort order for catalog display. Lower numbers appear first.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_ACTIVE',           'Enable or disable the demo. Inactive demos are hidden from the public catalog but still visible in admin.');
+
+// Categories
+define('LAN_DEMOBAR_GUIDE_DEMOS_CAT_TITLE',          'Predefined Categories');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CAT_DESC',           'DemoBar ships with 25 predefined categories. Each category label is internationalized (i18n) — the stored value in the database is always the English key, and the display label is translated via language constants. Categories support batch edit and column filter in the admin list.');
+
+// Catalog page
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_TITLE',      'Public Catalog Page');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_DESC',       'The catalog page displays all active demos as responsive cards at <code>/demos/</code> (or the configured SEF URL):');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM1',      'Each card shows the <strong>thumbnail</strong>, <strong>name</strong>, <strong>category badge</strong>, and a <strong>truncated description</strong> (120 characters).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM2',      'Cards link to the individual demo detail page at <code>/demos/{slug}</code>.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM3',      'The layout uses a responsive grid that adapts from 3 columns on desktop to 1 column on mobile.');
+
+// Detail page
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_TITLE',       'Demo Detail Page');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_DESC',        'Each demo has a dedicated detail page (<code>/demos/{slug}</code>) that shows:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM1',       'Full description (no truncation), thumbnail, version, release date, built-with info, and license details.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM2',       '<strong>Live Preview</strong> and <strong>Download</strong> action buttons (when URLs are configured).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM3',       'Breadcrumb navigation: Home → Demos → Demo Name.');
+
+// Sidebar
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_TITLE',      'Sidebar Menu');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_DESC',       'DemoBar provides a sidebar menu (<code>demobar_detail_menu</code>) that displays a list of all active demos. It highlights the currently viewed demo and truncates descriptions to 150 characters. To activate it:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP1',      'Go to <strong>Admin → Menus</strong> (Menu Manager).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP2',      'Find <strong>DemoBar — Demo Detail Menu</strong> in the available menus list.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP3',      'Drag it to a sidebar area (e.g. <code>Menu Area 1</code>) or the area used by your theme for side navigation.');
+
+// Truncation
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TITLE',        'Description Truncation');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_DESC',         'Descriptions are automatically truncated in different contexts to maintain a clean layout:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_CONTEXT',   'Context');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_LIMIT',     'Char Limit');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_HOW',       'Implementation');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_CATALOG',    'Catalog Cards');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_CATALOG_HOW','Via shortcode parameter: <code>{DEMOBAR_DEMO_DESCRIPTION=120}</code> in the catalog template.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_SIDEBAR',    'Sidebar Menu');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_SIDEBAR_HOW','Via <code>$tp->truncate($text, 150, "…")</code> in the sidebar menu file.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_DETAIL',     'Detail Page');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_DETAIL_HOW', 'Full description is displayed without any truncation.');
+
+// Note
+define('LAN_DEMOBAR_GUIDE_DEMOS_NOTE_TITLE',         'Database Table:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_NOTE_TEXT',           'Demo records are stored in the <code>{PREFIX}demobar_demos</code> table (14 columns). The admin CRUD interface uses the standard e107 <code>e_admin_ui</code> pattern with inline editing, batch operations, and column filters for category and status.');
+
+
+// =============================================================================
+// Guide — Tab 5: Multisite
 // =============================================================================
 
 define('LAN_DEMOBAR_GUIDE_MULTI_TITLE',              'Multisite Integration');

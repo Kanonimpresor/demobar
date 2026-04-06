@@ -280,6 +280,7 @@ class demobar_admin_ui extends e_admin_ui
 			'overview'        => ['LAN_DEMOBAR_GUIDE_TAB_OVERVIEW',  'Overview',         'fa-info-circle'],
 			'configuration'   => ['LAN_DEMOBAR_GUIDE_TAB_CONFIG',    'Configuration',    'fa-cog'],
 			'usage'           => ['LAN_DEMOBAR_GUIDE_TAB_USAGE',     'Usage',            'fa-play'],
+			'demos'           => ['LAN_DEMOBAR_GUIDE_TAB_DEMOS',     'Demo Management',  'fa-th-large'],
 			'multisite'       => ['LAN_DEMOBAR_GUIDE_TAB_MULTISITE', 'Multisite',        'fa-globe'],
 			'troubleshooting' => ['LAN_DEMOBAR_GUIDE_TAB_TROUBLE',   'Troubleshooting',  'fa-wrench'],
 		];

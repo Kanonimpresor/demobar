@@ -96,6 +96,7 @@ define('LAN_DEMOBAR_GUIDE_TAB_CONFIG',      'Configuração');
 define('LAN_DEMOBAR_GUIDE_TAB_USAGE',       'Uso');
 define('LAN_DEMOBAR_GUIDE_TAB_MULTISITE',   'Multissite');
 define('LAN_DEMOBAR_GUIDE_TAB_TROUBLE',     'Solução de Problemas');
+define('LAN_DEMOBAR_GUIDE_TAB_DEMOS',        'Gestão de Demos');
 
 
 // =============================================================================
@@ -205,7 +206,76 @@ define('LAN_DEMOBAR_GUIDE_USAGE_ADMIN_WARNING',      'Se você configurou uma li
 
 
 // =============================================================================
-// Guia — Aba 4: Multissite
+// Guia — Aba 4: Gestão de Demos
+// =============================================================================
+
+define('LAN_DEMOBAR_GUIDE_DEMOS_TITLE',              'Gestão de Demos');
+define('LAN_DEMOBAR_GUIDE_DEMOS_INTRO',              'O DemoBar inclui um sistema de catálogo de demos completo. Você pode criar, editar e gerenciar entradas de demos diretamente pelo painel de administração. Cada demo é armazenado na tabela <code>demobar_demos</code> e exibido nas páginas públicas de catálogo e detalhes.');
+
+// CRUD
+define('LAN_DEMOBAR_GUIDE_DEMOS_CRUD_TITLE',         'Criar e Editar Demos');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CRUD_DESC',          'Navegue até <strong>Admin → DemoBar → Criar Demo</strong> para adicionar um novo demo. Use a lista de demos para editar ou excluir entradas existentes. Os seguintes campos estão disponíveis:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TH_FIELD',           'Campo');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TH_TYPE',            'Tipo');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TH_DESC',            'Descrição');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_SLUG',             'Identificador único compatível com URLs que corresponde ao padrão match do multissite (ex: <code>bootstrap5</code>, <code>kreative</code>). Usado em URLs como <code>/demos/bootstrap5</code>.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_NAME',             'Nome de exibição do demo mostrado nos cards do catálogo e na página de detalhes.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_DESC',             'Descrição completa do demo. Truncada automaticamente nos cards do catálogo e na barra lateral (veja a seção de Truncamento abaixo).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_CATEGORY',         'Selecione entre 25 categorias predefinidas (Negócios, Portfólio, Comércio Eletrônico, etc.). As categorias são totalmente internacionalizadas e suportam operações em lote e filtragem na lista de admin.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_THUMBNAIL',        'Imagem de pré-visualização do demo. Usa o gerenciador de mídia do e107 para upload e seleção. Exibida como imagem do card no catálogo.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_VERSION',          'String de versão do demo (ex: <code>1.0.0</code>). Exibida no painel de informações da página de detalhes.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_RELEASE',          'Data de lançamento do demo. Exibida nos metadados da página de detalhes.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_BUILT',            'Tecnologias utilizadas (ex: <code>Bootstrap 5, jQuery</code>). Exibida na página de detalhes.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_LICENSE',          'Tipo de licença (ex: GPL, MIT) e uma URL opcional vinculando ao texto completo da licença.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_DOWNLOAD',         'URL onde os arquivos do demo podem ser baixados. Se fornecida, um botão de Download aparece na página de detalhes.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_ORDER',            'Ordem de classificação para exibição no catálogo. Números menores aparecem primeiro.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_F_ACTIVE',           'Ativar ou desativar o demo. Demos inativos ficam ocultos do catálogo público mas continuam visíveis no admin.');
+
+// Categorias
+define('LAN_DEMOBAR_GUIDE_DEMOS_CAT_TITLE',          'Categorias Predefinidas');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CAT_DESC',           'O DemoBar inclui 25 categorias predefinidas. Cada rótulo de categoria é internacionalizado (i18n) — o valor armazenado no banco de dados é sempre a chave em inglês, e o rótulo de exibição é traduzido via constantes de idioma. As categorias suportam edição em lote e filtro de coluna na lista de admin.');
+
+// Página de catálogo
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_TITLE',      'Página Pública do Catálogo');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_DESC',       'A página de catálogo exibe todos os demos ativos como cards responsivos em <code>/demos/</code> (ou a URL SEF configurada):');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM1',      'Cada card mostra a <strong>miniatura</strong>, <strong>nome</strong>, <strong>badge de categoria</strong> e uma <strong>descrição truncada</strong> (120 caracteres).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM2',      'Os cards linkam para a página de detalhes individual do demo em <code>/demos/{slug}</code>.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM3',      'O layout usa uma grade responsiva que se adapta de 3 colunas no desktop para 1 coluna no celular.');
+
+// Página de detalhes
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_TITLE',       'Página de Detalhes do Demo');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_DESC',        'Cada demo tem uma página de detalhes dedicada (<code>/demos/{slug}</code>) que mostra:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM1',       'Descrição completa (sem truncamento), miniatura, versão, data de lançamento, tecnologias e detalhes da licença.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM2',       'Botões de ação <strong>Pré-visualização ao Vivo</strong> e <strong>Download</strong> (quando as URLs estão configuradas).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM3',       'Navegação breadcrumb: Início → Demos → Nome do Demo.');
+
+// Menu lateral
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_TITLE',      'Menu Lateral');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_DESC',       'O DemoBar fornece um menu lateral (<code>demobar_detail_menu</code>) que exibe uma lista de todos os demos ativos. Ele destaca o demo atualmente visualizado e trunca as descrições para 150 caracteres. Para ativá-lo:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP1',      'Vá para <strong>Admin → Menus</strong> (Gerenciador de Menus).');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP2',      'Encontre <strong>DemoBar — Menu de Detalhes do Demo</strong> na lista de menus disponíveis.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP3',      'Arraste-o para uma área de barra lateral (ex: <code>Área de Menu 1</code>) ou a área que seu tema usa para navegação lateral.');
+
+// Truncamento
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TITLE',        'Truncamento de Descrições');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_DESC',         'As descrições são automaticamente truncadas em diferentes contextos para manter um layout limpo:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_CONTEXT',   'Contexto');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_LIMIT',     'Limite');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_HOW',       'Implementação');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_CATALOG',    'Cards do Catálogo');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_CATALOG_HOW','Via parâmetro de shortcode: <code>{DEMOBAR_DEMO_DESCRIPTION=120}</code> no template do catálogo.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_SIDEBAR',    'Menu Lateral');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_SIDEBAR_HOW','Via <code>$tp->truncate($text, 150, "…")</code> no arquivo do menu lateral.');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_DETAIL',     'Página de Detalhes');
+define('LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_DETAIL_HOW', 'A descrição completa é exibida sem nenhum truncamento.');
+
+// Nota
+define('LAN_DEMOBAR_GUIDE_DEMOS_NOTE_TITLE',         'Tabela do Banco de Dados:');
+define('LAN_DEMOBAR_GUIDE_DEMOS_NOTE_TEXT',           'Os registros de demos são armazenados na tabela <code>{PREFIX}demobar_demos</code> (14 colunas). A interface CRUD de admin usa o padrão padrão do e107 <code>e_admin_ui</code> com edição inline, operações em lote e filtros de coluna para categoria e status.');
+
+
+// =============================================================================
+// Guia — Aba 5: Multissite
 // =============================================================================
 
 define('LAN_DEMOBAR_GUIDE_MULTI_TITLE',              'Integração Multissite');

@@ -523,4 +523,251 @@ class plugin_demobar_demobar_guide_shortcodes extends e_shortcode
 		return LAN_DEMOBAR_GUIDE_TROUBLE_SUPPORT_TEXT;
 	}
 
+	// ── Tab Demos ──
+
+	public function sc_demobar_guide_demos_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_intro()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_INTRO;
+	}
+
+	public function sc_demobar_guide_demos_crud_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CRUD_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_crud_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CRUD_DESC;
+	}
+
+	public function sc_demobar_guide_demos_th_field()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TH_FIELD;
+	}
+
+	public function sc_demobar_guide_demos_th_type()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TH_TYPE;
+	}
+
+	public function sc_demobar_guide_demos_th_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TH_DESC;
+	}
+
+	public function sc_demobar_guide_demos_f_slug()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_SLUG;
+	}
+
+	public function sc_demobar_guide_demos_f_name()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_NAME;
+	}
+
+	public function sc_demobar_guide_demos_f_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_DESC;
+	}
+
+	public function sc_demobar_guide_demos_f_category()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_CATEGORY;
+	}
+
+	public function sc_demobar_guide_demos_f_thumbnail()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_THUMBNAIL;
+	}
+
+	public function sc_demobar_guide_demos_f_version()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_VERSION;
+	}
+
+	public function sc_demobar_guide_demos_f_release()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_RELEASE;
+	}
+
+	public function sc_demobar_guide_demos_f_built()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_BUILT;
+	}
+
+	public function sc_demobar_guide_demos_f_license()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_LICENSE;
+	}
+
+	public function sc_demobar_guide_demos_f_download()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_DOWNLOAD;
+	}
+
+	public function sc_demobar_guide_demos_f_order()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_ORDER;
+	}
+
+	public function sc_demobar_guide_demos_f_active()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_F_ACTIVE;
+	}
+
+	public function sc_demobar_guide_demos_cat_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CAT_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_cat_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CAT_DESC;
+	}
+
+	public function sc_demobar_guide_demos_catalog_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_catalog_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_DESC;
+	}
+
+	public function sc_demobar_guide_demos_catalog_item1()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM1;
+	}
+
+	public function sc_demobar_guide_demos_catalog_item2()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM2;
+	}
+
+	public function sc_demobar_guide_demos_catalog_item3()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_CATALOG_ITEM3;
+	}
+
+	public function sc_demobar_guide_demos_detail_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_detail_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_DESC;
+	}
+
+	public function sc_demobar_guide_demos_detail_item1()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM1;
+	}
+
+	public function sc_demobar_guide_demos_detail_item2()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM2;
+	}
+
+	public function sc_demobar_guide_demos_detail_item3()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_DETAIL_ITEM3;
+	}
+
+	public function sc_demobar_guide_demos_sidebar_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_sidebar_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_DESC;
+	}
+
+	public function sc_demobar_guide_demos_sidebar_step1()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP1;
+	}
+
+	public function sc_demobar_guide_demos_sidebar_step2()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP2;
+	}
+
+	public function sc_demobar_guide_demos_sidebar_step3()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_SIDEBAR_STEP3;
+	}
+
+	public function sc_demobar_guide_demos_trunc_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_trunc_desc()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_DESC;
+	}
+
+	public function sc_demobar_guide_demos_trunc_th_context()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_CONTEXT;
+	}
+
+	public function sc_demobar_guide_demos_trunc_th_limit()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_LIMIT;
+	}
+
+	public function sc_demobar_guide_demos_trunc_th_how()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_TH_HOW;
+	}
+
+	public function sc_demobar_guide_demos_trunc_r_catalog()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_CATALOG;
+	}
+
+	public function sc_demobar_guide_demos_trunc_r_catalog_how()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_CATALOG_HOW;
+	}
+
+	public function sc_demobar_guide_demos_trunc_r_sidebar()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_SIDEBAR;
+	}
+
+	public function sc_demobar_guide_demos_trunc_r_sidebar_how()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_SIDEBAR_HOW;
+	}
+
+	public function sc_demobar_guide_demos_trunc_r_detail()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_DETAIL;
+	}
+
+	public function sc_demobar_guide_demos_trunc_r_detail_how()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_TRUNC_R_DETAIL_HOW;
+	}
+
+	public function sc_demobar_guide_demos_note_title()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_NOTE_TITLE;
+	}
+
+	public function sc_demobar_guide_demos_note_text()
+	{
+		return LAN_DEMOBAR_GUIDE_DEMOS_NOTE_TEXT;
+	}
+
 }
