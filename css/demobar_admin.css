@@ -57,7 +57,7 @@
 .demobar-guide .tab-pane p {
 	line-height: 1.7;
 	font-size: 14px;
-	color: #ffffff;
+	color: #444;
 }
 
 .demobar-guide .tab-pane ul,
@@ -97,6 +97,7 @@
 	line-height: 1.6;
 	margin: 0;
 	opacity: 0.9;
+	color: #e0e0e0;
 }
 
 
