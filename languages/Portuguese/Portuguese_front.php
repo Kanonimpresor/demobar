@@ -63,3 +63,24 @@ define('LAN_DEMOBAR_STATUS_NO_DEMOS',    'Nenhum demo configurado');
 define('LAN_DEMOBAR_ERR_JSON_NOT_FOUND', 'O arquivo multisite.json não foi encontrado');
 define('LAN_DEMOBAR_ERR_JSON_INVALID',   'O arquivo multisite.json contém JSON inválido');
 define('LAN_DEMOBAR_ERR_IP_BLOCKED',     'Acesso restrito por lista branca de IP');
+
+// --- Menu de detalhe do demo (sidebar) ---
+define('LAN_DEMOBAR_MENU_DETAIL_CAPTION', 'Detalhes do Demo');
+define('LAN_DEMOBAR_MENU_VERSION',        'Versão');
+define('LAN_DEMOBAR_MENU_RELEASE_DATE',   'Data de Lançamento');
+define('LAN_DEMOBAR_MENU_BUILT_WITH',     'Construído Com');
+define('LAN_DEMOBAR_MENU_INCLUDED_FILES', 'Arquivos Incluídos');
+define('LAN_DEMOBAR_MENU_CATEGORY',       'Categoria');
+define('LAN_DEMOBAR_MENU_DOWNLOAD',       'Baixar');
+define('LAN_DEMOBAR_MENU_LICENSE',        'Licença');
+define('LAN_DEMOBAR_MENU_LICENSE_TYPE',   'Licença');
+define('LAN_DEMOBAR_MENU_SELECT_DEMO',    '-- Selecionar Demo --');
+define('LAN_DEMOBAR_MENU_CAPTION_LABEL',  'Título do Menu');
+define('LAN_DEMOBAR_MENU_CAPTION_HELP',   'Título exibido acima do menu. Deixe vazio para usar o padrão do arquivo de idioma.');
+define('LAN_DEMOBAR_MENU_DEMO_LABEL',     'Selecionar Demo');
+define('LAN_DEMOBAR_MENU_DEMO_HELP',      'Selecione qual demo exibir neste menu.');
+
+// --- Catálogo e detalhe (v1.2.0) ---
+define('LAN_DEMOBAR_VIEW_DETAILS',        'Ver Detalhes');
+define('LAN_DEMOBAR_DEMO_NOT_FOUND',      'O demo solicitado não foi encontrado.');
+define('LAN_DEMOBAR_DETAIL_INFO',         'Informações');

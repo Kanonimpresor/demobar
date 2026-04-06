@@ -272,3 +272,53 @@ define('LAN_DEMOBAR_GUIDE_TROUBLE_SUPPORT_TEXT',     'Visit the e107 community f
 
 define('LAN_DEMOBAR_ADMIN_SAVED',           'DemoBar settings saved successfully.');
 define('LAN_DEMOBAR_ADMIN_SAVE_ERROR',      'Error saving DemoBar settings.');
+
+
+// =============================================================================
+// Demos CRUD — Admin Menu & Field Labels
+// =============================================================================
+
+define('LAN_DEMOBAR_ADMIN_DEMOS',                'Demos');
+define('LAN_DEMOBAR_ADMIN_DEMOS_CREATE',         'Create Demo');
+
+define('LAN_DEMOBAR_FIELD_SLUG',                 'Slug');
+define('LAN_DEMOBAR_FIELD_SLUG_HELP',            'Unique identifier matching the demo match pattern in multisite.json (e.g., bootstrap5, kreative)');
+define('LAN_DEMOBAR_FIELD_THUMBNAIL',            'Thumbnail');
+define('LAN_DEMOBAR_FIELD_VERSION',              'Version');
+define('LAN_DEMOBAR_FIELD_RELEASE_DATE',         'Release Date');
+define('LAN_DEMOBAR_FIELD_BUILT_WITH',           'Built With');
+define('LAN_DEMOBAR_FIELD_INCLUDED_FILES',       'Included Files');
+define('LAN_DEMOBAR_FIELD_LICENSE_TYPE',         'License Type');
+define('LAN_DEMOBAR_FIELD_LICENSE_URL',          'License URL');
+define('LAN_DEMOBAR_FIELD_DOWNLOAD_URL',         'Download URL');
+
+
+// =============================================================================
+// Demo Categories — Dropdown options (key stored in DB = English value)
+// =============================================================================
+
+define('LAN_DEMOBAR_CAT_BUSINESS',           'Business');
+define('LAN_DEMOBAR_CAT_PORTFOLIO',          'Portfolio');
+define('LAN_DEMOBAR_CAT_ADMIN',             'Admin');
+define('LAN_DEMOBAR_CAT_EDUCATION',          'Education');
+define('LAN_DEMOBAR_CAT_ECOMMERCE',          'eCommerce');
+define('LAN_DEMOBAR_CAT_RESTAURANT',         'Restaurant');
+define('LAN_DEMOBAR_CAT_MEDICAL',            'Medical');
+define('LAN_DEMOBAR_CAT_COMING_SOON',        'Coming Soon');
+define('LAN_DEMOBAR_CAT_ONE_PAGE',           'One Page');
+define('LAN_DEMOBAR_CAT_LANDING_PAGE',       'Landing Page');
+define('LAN_DEMOBAR_CAT_CORPORATE',          'Corporate');
+define('LAN_DEMOBAR_CAT_AGENCY',             'Agency');
+define('LAN_DEMOBAR_CAT_TRAVEL',             'Travel');
+define('LAN_DEMOBAR_CAT_HOTEL',              'Hotel');
+define('LAN_DEMOBAR_CAT_EVENTS',             'Events');
+define('LAN_DEMOBAR_CAT_PHOTOGRAPHY',        'Photography');
+define('LAN_DEMOBAR_CAT_PERSONAL',           'Personal');
+define('LAN_DEMOBAR_CAT_RESUME',             'Resume / CV');
+define('LAN_DEMOBAR_CAT_REAL_ESTATE',        'Real Estate');
+define('LAN_DEMOBAR_CAT_HEALTH',             'Health');
+define('LAN_DEMOBAR_CAT_WEBSITE_TEMPLATES',  'Website Templates');
+define('LAN_DEMOBAR_CAT_CONSTRUCTION',       'Construction');
+define('LAN_DEMOBAR_CAT_TRANSPORTATION',     'Transportation');
+define('LAN_DEMOBAR_CAT_BLOG_MAGAZINE',      'Blog & Magazine');
+define('LAN_DEMOBAR_CAT_SAAS',               'SaaS');

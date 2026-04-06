@@ -271,3 +271,53 @@ define('LAN_DEMOBAR_GUIDE_TROUBLE_SUPPORT_TEXT',     'Visite os fóruns da comun
 
 define('LAN_DEMOBAR_ADMIN_SAVED',           'Configurações do DemoBar salvas com sucesso.');
 define('LAN_DEMOBAR_ADMIN_SAVE_ERROR',      'Erro ao salvar as configurações do DemoBar.');
+
+
+// =============================================================================
+// Demos CRUD — Menu Admin e Rótulos dos campos
+// =============================================================================
+
+define('LAN_DEMOBAR_ADMIN_DEMOS',                'Demos');
+define('LAN_DEMOBAR_ADMIN_DEMOS_CREATE',         'Criar Demo');
+
+define('LAN_DEMOBAR_FIELD_SLUG',                 'Slug');
+define('LAN_DEMOBAR_FIELD_SLUG_HELP',            'Identificador único que corresponde ao padrão match no multisite.json (ex: bootstrap5, kreative)');
+define('LAN_DEMOBAR_FIELD_THUMBNAIL',            'Miniatura');
+define('LAN_DEMOBAR_FIELD_VERSION',              'Versão');
+define('LAN_DEMOBAR_FIELD_RELEASE_DATE',         'Data de Lançamento');
+define('LAN_DEMOBAR_FIELD_BUILT_WITH',           'Construído Com');
+define('LAN_DEMOBAR_FIELD_INCLUDED_FILES',       'Arquivos Incluídos');
+define('LAN_DEMOBAR_FIELD_LICENSE_TYPE',         'Tipo de Licença');
+define('LAN_DEMOBAR_FIELD_LICENSE_URL',          'URL da Licença');
+define('LAN_DEMOBAR_FIELD_DOWNLOAD_URL',         'URL de Download');
+
+
+// =============================================================================
+// Categorias de Demos — Opções do dropdown (chave no BD = valor em inglês)
+// =============================================================================
+
+define('LAN_DEMOBAR_CAT_BUSINESS',           'Negócios');
+define('LAN_DEMOBAR_CAT_PORTFOLIO',          'Portfólio');
+define('LAN_DEMOBAR_CAT_ADMIN',             'Administração');
+define('LAN_DEMOBAR_CAT_EDUCATION',          'Educação');
+define('LAN_DEMOBAR_CAT_ECOMMERCE',          'Comércio Eletrônico');
+define('LAN_DEMOBAR_CAT_RESTAURANT',         'Restaurante');
+define('LAN_DEMOBAR_CAT_MEDICAL',            'Médico');
+define('LAN_DEMOBAR_CAT_COMING_SOON',        'Em Breve');
+define('LAN_DEMOBAR_CAT_ONE_PAGE',           'Uma Página');
+define('LAN_DEMOBAR_CAT_LANDING_PAGE',       'Página de Destino');
+define('LAN_DEMOBAR_CAT_CORPORATE',          'Corporativo');
+define('LAN_DEMOBAR_CAT_AGENCY',             'Agência');
+define('LAN_DEMOBAR_CAT_TRAVEL',             'Viagens');
+define('LAN_DEMOBAR_CAT_HOTEL',              'Hotel');
+define('LAN_DEMOBAR_CAT_EVENTS',             'Eventos');
+define('LAN_DEMOBAR_CAT_PHOTOGRAPHY',        'Fotografia');
+define('LAN_DEMOBAR_CAT_PERSONAL',           'Pessoal');
+define('LAN_DEMOBAR_CAT_RESUME',             'Currículo / CV');
+define('LAN_DEMOBAR_CAT_REAL_ESTATE',        'Imóveis');
+define('LAN_DEMOBAR_CAT_HEALTH',             'Saúde');
+define('LAN_DEMOBAR_CAT_WEBSITE_TEMPLATES',  'Modelos de Sites');
+define('LAN_DEMOBAR_CAT_CONSTRUCTION',       'Construção');
+define('LAN_DEMOBAR_CAT_TRANSPORTATION',     'Transporte');
+define('LAN_DEMOBAR_CAT_BLOG_MAGAZINE',      'Blog e Revista');
+define('LAN_DEMOBAR_CAT_SAAS',               'SaaS');

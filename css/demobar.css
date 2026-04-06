@@ -232,21 +232,63 @@ outline: none;
 
 .demobar-catalog { min-height: 60vh; }
 
-.demobar-card {
-border: 1px solid rgba(0,0,0,0.08);
-border-radius: 8px;
-transition: var(--demobar-transition);
+.demobar-card-wrapper {
+display: flex;
+flex-direction: column;
 }
 
-.demobar-card:hover {
-transform: translateY(-4px);
-box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+.demobar-card-preview {
+padding: 16px 24px 0;
+}
+
+.demobar-card-preview .demobar-img-card {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 4px;
+filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+transition: transform 0.3s ease;
+}
+
+.demobar-card-wrapper:hover .demobar-card-preview .demobar-img-card {
+transform: translateY(-6px);
+}
+
+.demobar-card {
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 0 0 8px 8px;
+transition: var(--demobar-transition);
+border-top: none;
 }
 
 .demobar-card .card-title { font-size: 1.1rem; font-weight: 600; color: #1a1a2e; }
 .demobar-card .card-text { font-size: 0.9rem; }
+.demobar-card .card-footer { padding: 12px 16px; }
 .demobar-card .btn-primary { background-color: var(--demobar-accent); border-color: var(--demobar-accent); }
 .demobar-card .btn-primary:hover { background-color: var(--demobar-accent-hover); border-color: var(--demobar-accent-hover); }
+.demobar-card .btn-outline-primary { color: var(--demobar-accent); border-color: var(--demobar-accent); }
+.demobar-card .btn-outline-primary:hover { background-color: var(--demobar-accent); border-color: var(--demobar-accent); color: #fff; }
+
+
+/* ==========================================================================
+   DemoBar Detail Page — Vista individual de demo (/demos/{slug})
+   ========================================================================== */
+
+.demobar-detail { min-height: 50vh; }
+
+.demobar-detail-hero .demobar-img-detail {
+width: 100%;
+height: auto;
+border-radius: 8px;
+display: block;
+filter: drop-shadow(0 4px 16px rgba(0,0,0,0.12));
+}
+
+.demobar-detail .lead {
+font-size: 1.05rem;
+line-height: 1.7;
+color: #555;
+}
 
 @media (max-width: 768px) {
 .demobar-inner { gap: 8px; padding: 0 8px; }
@@ -269,4 +311,80 @@ box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 @media print {
 .demobar, .demobar-restore { display: none !important; }
 body { padding-top: 0 !important; padding-bottom: 0 !important; }
+}
+
+
+/* ==========================================================================
+   DemoBar Detail Menu (Sidebar) — Estilos del menú lateral de detalles
+   ========================================================================== */
+
+.demobar-detail-menu {
+	font-size: 0.9rem;
+}
+
+.demobar-detail-name {
+	font-weight: 700;
+	color: #1a1a2e;
+}
+
+.demobar-detail-thumb .demobar-img-menu {
+	border-radius: 6px;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.demobar-detail-desc {
+	line-height: 1.5;
+}
+
+.demobar-detail-list {
+	margin: 0;
+	padding: 0;
+}
+
+.demobar-detail-item {
+	display: flex;
+	flex-direction: column;
+	padding: 8px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.demobar-detail-item:last-child {
+	border-bottom: none;
+}
+
+.demobar-detail-label {
+	font-weight: 600;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	color: #6c757d;
+	margin-bottom: 3px;
+}
+
+.demobar-detail-label i {
+	width: 16px;
+	text-align: center;
+	margin-right: 4px;
+}
+
+.demobar-detail-value {
+	color: #333;
+	line-height: 1.4;
+}
+
+.demobar-detail-actions .btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	font-size: 0.85rem;
+}
+
+.demobar-detail-license {
+	padding: 8px 0 0;
+}
+
+.demobar-detail-license small {
+	font-size: 0.8rem;
 }

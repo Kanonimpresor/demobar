@@ -30,7 +30,7 @@ define('LAN_DEMOBAR_CONTACT',            'Contacto');
 define('LAN_DEMOBAR_BRAND_DEFAULT',      'Muestra de Demos');
 
 // --- Catálogo de demos ---
-define('LAN_DEMOBAR_CATALOG_TITLE',      'Catálogo de Demos');
+define('LAN_DEMOBAR_CATALOG_TITLE',      'Catálogo de los Demos');
 define('LAN_DEMOBAR_CATALOG_SUBTITLE',   'Explora nuestra colección de demos disponibles');
 define('LAN_DEMOBAR_CATALOG_EMPTY',      'No hay demos disponibles en este momento.');
 define('LAN_DEMOBAR_CATALOG_COUNT',      'demos disponibles');
@@ -63,3 +63,24 @@ define('LAN_DEMOBAR_STATUS_NO_DEMOS',    'No hay demos configurados');
 define('LAN_DEMOBAR_ERR_JSON_NOT_FOUND', 'El archivo multisite.json no fue encontrado');
 define('LAN_DEMOBAR_ERR_JSON_INVALID',   'El archivo multisite.json contiene JSON inválido');
 define('LAN_DEMOBAR_ERR_IP_BLOCKED',     'Acceso restringido por lista blanca de IP');
+
+// --- Menú de detalle del demo (sidebar) ---
+define('LAN_DEMOBAR_MENU_DETAIL_CAPTION', 'Detalles del Demo');
+define('LAN_DEMOBAR_MENU_VERSION',        'Versión');
+define('LAN_DEMOBAR_MENU_RELEASE_DATE',   'Fecha de Lanzamiento');
+define('LAN_DEMOBAR_MENU_BUILT_WITH',     'Construido Con');
+define('LAN_DEMOBAR_MENU_INCLUDED_FILES', 'Archivos Incluidos');
+define('LAN_DEMOBAR_MENU_CATEGORY',       'Categoría');
+define('LAN_DEMOBAR_MENU_DOWNLOAD',       'Descargar');
+define('LAN_DEMOBAR_MENU_LICENSE',        'Licencia');
+define('LAN_DEMOBAR_MENU_LICENSE_TYPE',   'Licencia');
+define('LAN_DEMOBAR_MENU_SELECT_DEMO',    '-- Seleccionar Demo --');
+define('LAN_DEMOBAR_MENU_CAPTION_LABEL',  'Título del Menú');
+define('LAN_DEMOBAR_MENU_CAPTION_HELP',   'Título que se muestra encima del menú. Dejar vacío para usar el predeterminado del archivo de idioma.');
+define('LAN_DEMOBAR_MENU_DEMO_LABEL',     'Seleccionar Demo');
+define('LAN_DEMOBAR_MENU_DEMO_HELP',      'Seleccione qué demo mostrar en este menú.');
+
+// --- Catálogo y detalle (v1.2.0) ---
+define('LAN_DEMOBAR_VIEW_DETAILS',        'Ver Detalles');
+define('LAN_DEMOBAR_DEMO_NOT_FOUND',      'El demo solicitado no fue encontrado.');
+define('LAN_DEMOBAR_DETAIL_INFO',         'Información');

@@ -18,8 +18,8 @@ if (!getperms('P'))
 	exit;
 }
 
-// Cargar idioma de administración
-e107::lan('demobar', true);
+// Cargar idioma de administración (subdirectorio: languages/English/English_admin.php)
+e107::lan('demobar', 'admin', true);
 
 
 /**
@@ -34,16 +34,26 @@ class demobar_adminArea extends e_admin_dispatcher
 			'ui'         => 'demobar_admin_form_ui',
 			'uipath'     => null,
 		],
+		'demos' => [
+			'controller' => 'demobar_demos_admin_ui',
+			'path'       => null,
+			'ui'         => 'demobar_demos_admin_form_ui',
+			'uipath'     => null,
+		],
 	];
 
 	protected $adminMenu = [
 		'main/prefs'     => ['caption' => LAN_PREFS, 'perm' => 'P', 'icon' => 'fa-cog'],
+		'demos/list'     => ['caption' => 'LAN_DEMOBAR_ADMIN_DEMOS', 'perm' => 'P', 'icon' => 'fa-th-list'],
+		'demos/create'   => ['caption' => 'LAN_DEMOBAR_ADMIN_DEMOS_CREATE', 'perm' => 'P', 'icon' => 'fa-plus'],
+		'demos/div1'     => ['divider' => true],
 		'main/configure' => ['caption' => 'LAN_DEMOBAR_ADMIN_CONFIGURE', 'perm' => 'P', 'icon' => 'fa-television'],
 		'main/guide'     => ['caption' => 'LAN_DEMOBAR_ADMIN_GUIDE', 'perm' => 'P', 'icon' => 'fa-book'],
 	];
 
 	protected $adminMenuAliases = [
-		'main/edit' => 'main/list',
+		'main/edit'  => 'main/list',
+		'demos/edit' => 'demos/list',
 	];
 
 	protected $menuTitle = 'DemoBar';
@@ -302,6 +312,92 @@ class demobar_admin_ui extends e_admin_ui
 class demobar_admin_form_ui extends e_admin_form_ui
 {
 	// Reservado para futuros campos personalizados con renderizado method
+}
+
+
+/**
+ * Controlador CRUD para la tabla demobar_demos.
+ * Gestiona el listado, creación, edición y eliminación de demos
+ * directamente desde el panel de administración.
+ */
+class demobar_demos_admin_ui extends e_admin_ui
+{
+	protected $pluginTitle = 'DemoBar';
+	protected $pluginName  = 'demobar';
+
+	protected $table  = 'demobar_demos';
+	protected $pid    = 'demo_id';
+	protected $perPage = 20;
+
+	protected $listOrder = 'demo_order ASC, demo_name ASC';
+
+	protected $fields = [
+		'checkboxes'         => ['title' => '', 'type' => null, 'data' => null, 'width' => '3%', 'thclass' => 'center', 'class' => 'center', 'forced' => true, 'nosort' => true],
+		'demo_id'            => ['title' => LAN_ID, 'type' => 'number', 'data' => 'int', 'width' => '5%', 'forced' => true, 'readonly' => 2],
+		'demo_slug'          => ['title' => 'LAN_DEMOBAR_FIELD_SLUG', 'type' => 'text', 'data' => 'str', 'width' => '10%', 'batch' => false, 'filter' => true, 'inline' => true, 'help' => 'LAN_DEMOBAR_FIELD_SLUG_HELP', 'validate' => true],
+		'demo_name'          => ['title' => LAN_TITLE, 'type' => 'text', 'data' => 'str', 'width' => '15%', 'batch' => false, 'filter' => true, 'inline' => true],
+		'demo_description'   => ['title' => LAN_DESCRIPTION, 'type' => 'textarea', 'data' => 'str', 'width' => 'auto', 'readParms' => ['truncate' => 100], 'writeParms' => ['rows' => 4]],
+		'demo_category'      => ['title' => LAN_CATEGORY, 'type' => 'dropdown', 'data' => 'str', 'width' => '10%', 'batch' => true, 'filter' => true, 'inline' => true],
+		'demo_thumbnail'     => ['title' => 'LAN_DEMOBAR_FIELD_THUMBNAIL', 'type' => 'image', 'data' => 'str', 'width' => '10%', 'readParms' => ['thumb' => 80]],
+		'demo_version'       => ['title' => 'LAN_DEMOBAR_FIELD_VERSION', 'type' => 'text', 'data' => 'str', 'width' => '8%', 'inline' => true, 'writeParms' => ['size' => 'small', 'placeholder' => '1.0.0']],
+		'demo_release_date'  => ['title' => 'LAN_DEMOBAR_FIELD_RELEASE_DATE', 'type' => 'text', 'data' => 'str', 'width' => '10%', 'inline' => true, 'writeParms' => ['size' => 'medium', 'placeholder' => '2026-01-01']],
+		'demo_built_with'    => ['title' => 'LAN_DEMOBAR_FIELD_BUILT_WITH', 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'writeParms' => ['placeholder' => 'e107 v2.4.1, Bootstrap 5, PHP 8.2']],
+		'demo_included_files'=> ['title' => 'LAN_DEMOBAR_FIELD_INCLUDED_FILES', 'type' => 'text', 'data' => 'str', 'width' => 'auto', 'writeParms' => ['placeholder' => 'HTML, CSS, JS, PHP, SQL']],
+		'demo_license_type'  => ['title' => 'LAN_DEMOBAR_FIELD_LICENSE_TYPE', 'type' => 'text', 'data' => 'str', 'width' => '8%', 'inline' => true, 'writeParms' => ['size' => 'small', 'placeholder' => 'GPL-3.0']],
+		'demo_license_url'   => ['title' => 'LAN_DEMOBAR_FIELD_LICENSE_URL', 'type' => 'url', 'data' => 'str', 'width' => 'auto'],
+		'demo_download_url'  => ['title' => 'LAN_DEMOBAR_FIELD_DOWNLOAD_URL', 'type' => 'url', 'data' => 'str', 'width' => 'auto'],
+		'demo_order'         => ['title' => LAN_ORDER, 'type' => 'number', 'data' => 'int', 'width' => '5%', 'inline' => true],
+		'demo_active'        => ['title' => LAN_ACTIVE, 'type' => 'boolean', 'data' => 'int', 'width' => '5%', 'batch' => true, 'filter' => true, 'inline' => true, 'thclass' => 'center', 'class' => 'center'],
+		'options'            => ['title' => LAN_OPTIONS, 'type' => null, 'data' => null, 'width' => '8%', 'forced' => true, 'thclass' => 'center last', 'class' => 'center last'],
+	];
+
+	protected $fieldpref = ['demo_id', 'demo_slug', 'demo_name', 'demo_category', 'demo_version', 'demo_active', 'demo_order', 'options'];
+
+
+	public function init()
+	{
+		// Construir opciones del dropdown de categorías con i18n.
+		// La clave almacenada en BD es el nombre en inglés (consistente entre idiomas).
+		// El valor mostrado es la traducción del idioma activo.
+		$categories = [
+			'Business'          => defset('LAN_DEMOBAR_CAT_BUSINESS',          'Business'),
+			'Portfolio'         => defset('LAN_DEMOBAR_CAT_PORTFOLIO',         'Portfolio'),
+			'Admin'             => defset('LAN_DEMOBAR_CAT_ADMIN',             'Admin'),
+			'Education'         => defset('LAN_DEMOBAR_CAT_EDUCATION',         'Education'),
+			'eCommerce'         => defset('LAN_DEMOBAR_CAT_ECOMMERCE',         'eCommerce'),
+			'Restaurant'        => defset('LAN_DEMOBAR_CAT_RESTAURANT',        'Restaurant'),
+			'Medical'           => defset('LAN_DEMOBAR_CAT_MEDICAL',           'Medical'),
+			'Coming Soon'       => defset('LAN_DEMOBAR_CAT_COMING_SOON',       'Coming Soon'),
+			'One Page'          => defset('LAN_DEMOBAR_CAT_ONE_PAGE',          'One Page'),
+			'Landing Page'      => defset('LAN_DEMOBAR_CAT_LANDING_PAGE',      'Landing Page'),
+			'Corporate'         => defset('LAN_DEMOBAR_CAT_CORPORATE',         'Corporate'),
+			'Agency'            => defset('LAN_DEMOBAR_CAT_AGENCY',            'Agency'),
+			'Travel'            => defset('LAN_DEMOBAR_CAT_TRAVEL',            'Travel'),
+			'Hotel'             => defset('LAN_DEMOBAR_CAT_HOTEL',             'Hotel'),
+			'Events'            => defset('LAN_DEMOBAR_CAT_EVENTS',            'Events'),
+			'Photography'       => defset('LAN_DEMOBAR_CAT_PHOTOGRAPHY',       'Photography'),
+			'Personal'          => defset('LAN_DEMOBAR_CAT_PERSONAL',          'Personal'),
+			'Resume / CV'       => defset('LAN_DEMOBAR_CAT_RESUME',            'Resume / CV'),
+			'Real Estate'       => defset('LAN_DEMOBAR_CAT_REAL_ESTATE',       'Real Estate'),
+			'Health'            => defset('LAN_DEMOBAR_CAT_HEALTH',            'Health'),
+			'Website Templates' => defset('LAN_DEMOBAR_CAT_WEBSITE_TEMPLATES', 'Website Templates'),
+			'Construction'      => defset('LAN_DEMOBAR_CAT_CONSTRUCTION',      'Construction'),
+			'Transportation'    => defset('LAN_DEMOBAR_CAT_TRANSPORTATION',    'Transportation'),
+			'Blog & Magazine'   => defset('LAN_DEMOBAR_CAT_BLOG_MAGAZINE',     'Blog & Magazine'),
+			'SaaS'              => defset('LAN_DEMOBAR_CAT_SAAS',              'SaaS'),
+		];
+
+		$this->fields['demo_category']['writeParms'] = ['optArray' => $categories];
+	}
+}
+
+
+/**
+ * Clase de formulario personalizado para demos — extiende e_admin_form_ui.
+ */
+class demobar_demos_admin_form_ui extends e_admin_form_ui
+{
+	// Reservado para futuros campos personalizados
 }
 
 

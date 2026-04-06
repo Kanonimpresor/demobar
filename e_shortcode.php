@@ -6,15 +6,26 @@
  * Released under the terms and conditions of the
  * GNU General Public License (http://www.gnu.org/licenses/gpl.txt)
  *
- * DemoBar Plugin — Shortcodes globales
- * Disponibles en todo el sitio para insertar elementos del demobar en templates.
+ * DemoBar Plugin — Shortcodes globales (e_shortcode.php)
+ *
+ * Shortcodes disponibles en todo el sitio, cargados automáticamente
+ * por el sistema de shortcodes de e107.
+ *
+ * Shortcodes globales:
+ *   {DEMOBAR_NAV}     — Renderiza la barra de navegación completa
+ *   {DEMOBAR_COUNT}   — Número total de demos activos
+ *   {DEMOBAR_CURRENT} — Nombre del demo actual
+ *
+ * Los shortcodes de datos del catálogo/detalle (DEMOBAR_DEMO_NAME, etc.)
+ * están en shortcodes/batch/demobar_shortcodes.php y son cargados
+ * manualmente por demobar.php cuando renderiza templates.
  */
 
 if (!defined('e107_INIT')) { exit; }
 
 
 /**
- * Shortcodes del plugin DemoBar — disponibles en todo el sitio.
+ * Shortcodes globales del plugin DemoBar.
  * Convención de nombres: sc_demobar_<nombre>
  */
 class demobar_shortcodes extends e_shortcode
@@ -47,7 +58,7 @@ class demobar_shortcodes extends e_shortcode
 	 * {DEMOBAR_NAV} — Renderiza la barra de navegación completa.
 	 * Uso en templates: {DEMOBAR_NAV}
 	 *
-	 * @param mixed $parm Parámetros opcionales (no usados actualmente)
+	 * @param mixed $parm Parámetros opcionales
 	 * @return string HTML de la barra de navegación
 	 */
 	public function sc_demobar_nav($parm = null)
@@ -60,7 +71,7 @@ class demobar_shortcodes extends e_shortcode
 	 * {DEMOBAR_COUNT} — Número total de demos activos.
 	 * Uso: {DEMOBAR_COUNT}
 	 *
-	 * @param mixed $parm Parámetros opcionales (no usados actualmente)
+	 * @param mixed $parm Parámetros opcionales
 	 * @return string Número de demos
 	 */
 	public function sc_demobar_count($parm = null)
@@ -73,7 +84,7 @@ class demobar_shortcodes extends e_shortcode
 	 * {DEMOBAR_CURRENT} — Nombre del demo que se está visualizando actualmente.
 	 * Uso: {DEMOBAR_CURRENT}
 	 *
-	 * @param mixed $parm Parámetros opcionales (no usados actualmente)
+	 * @param mixed $parm Parámetros opcionales
 	 * @return string Nombre del demo actual o cadena vacía
 	 */
 	public function sc_demobar_current($parm = null)

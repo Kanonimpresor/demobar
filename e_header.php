@@ -37,8 +37,8 @@ if (deftrue('USER_AREA'))
 		// Cargar JavaScript para funcionalidad de toggle (se ejecuta después del DOM)
 		e107::js('demobar', 'js/demobar.js', 'jquery');
 
-		// Cargar idioma del plugin
-		e107::lan('demobar');
+		// Cargar idioma del plugin (subdirectorio: languages/English/English_front.php)
+		e107::lan('demobar', 'front', true);
 
 		// Inyectar estilos dinámicos basados en las preferencias del admin
 		$bgColor   = varset($demobarPrefs['demobar_bg_color'], '#343a40');

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e107Plugin name="DemoBar"
             lan="LAN_PLUGIN_DEMOBAR_NAME"
-            version="1.0"
-            date="2026-03-27"
+            version="1.2.0"
+            date="2026-06-26"
             compatibility="2.3"
             installRequired="true">
 
@@ -45,5 +45,7 @@
         <pref name="demobar_admin_ip_whitelist"></pref>
         <pref name="demobar_position">top</pref>
     </pluginPrefs>
+
+    <menuLink>demobar_detail_menu</menuLink>
 
 </e107Plugin>
