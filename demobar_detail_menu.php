@@ -97,10 +97,11 @@ if (!empty($row['demo_thumbnail']))
 	$text .= '</div>';
 }
 
-// --- Descripción breve ---
+// --- Descripción breve (truncada a 150 caracteres para el sidebar) ---
 if (!empty($row['demo_description']))
 {
-	$text .= '<p class="demobar-detail-desc text-muted small mb-3">' . $tp->toHTML($row['demo_description'], false, 'BODY') . '</p>';
+	$descText = $tp->truncate($tp->toText($row['demo_description']), 150, '…');
+	$text .= '<p class="demobar-detail-desc text-muted small mb-3">' . $descText . '</p>';
 }
 
 // --- Información del demo ---

@@ -105,7 +105,7 @@ $DEMOBAR_TEMPLATE['catalog_card'] = '
 		<div class="card demobar-card shadow-sm">
 			<div class="card-body d-flex flex-column">
 				<h5 class="card-title">{DEMOBAR_DEMO_NAME}</h5>
-				<p class="card-text text-muted flex-grow-1">{DEMOBAR_DEMO_DESCRIPTION}</p>
+				<p class="card-text text-muted flex-grow-1">{DEMOBAR_DEMO_DESCRIPTION=120}</p>
 				<div class="d-flex align-items-center justify-content-between mt-auto">
 					<span class="badge bg-secondary">{DEMOBAR_DEMO_CATEGORY}</span>
 					<small class="text-muted">{DEMOBAR_DEMO_VERSION}</small>

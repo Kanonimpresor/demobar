@@ -51,12 +51,31 @@ class demobar_catalog_shortcodes extends e_shortcode
 
 	/**
 	 * {DEMOBAR_DEMO_DESCRIPTION} — Descripción del demo.
+	 *
+	 * Uso:
+	 *   {DEMOBAR_DEMO_DESCRIPTION}       — Texto completo (para página de detalle)
+	 *   {DEMOBAR_DEMO_DESCRIPTION=120}    — Truncado a 120 caracteres (para catálogo)
+	 *
+	 * @param string|null $parm Número máximo de caracteres, o null para completo
 	 */
 	public function sc_demobar_demo_description($parm = null)
 	{
 		$desc = varset($this->var['demo_description'], '');
 
-		return !empty($desc) ? e107::getParser()->toHTML($desc, false, 'BODY') : '';
+		if (empty($desc))
+		{
+			return '';
+		}
+
+		$tp = e107::getParser();
+
+		// Si se especifica un límite numérico, truncar el texto plano
+		if (!empty($parm) && is_numeric($parm))
+		{
+			return $tp->truncate($tp->toText($desc), (int) $parm, '…');
+		}
+
+		return $tp->toHTML($desc, false, 'BODY');
 	}
 
 	/**
